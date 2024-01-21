@@ -82,11 +82,9 @@ export default function CartPage() {
               <div className="flex flex-col gap-3 w-full">
                 <h2 className="text-xl md:text-2xl font-semibold md:mt-4 mt-1">Total Bayar : Rp {totalAmount}</h2>
                 {(!user || !isLogedIn) && <p className="text-sm md:text-md text-red-500">*Login terlebih dahulu untuk dapat membayar </p>}
-                <Link href="/checkout">
-                  <Button className="w-full" disabled={!user || !isLogedIn}>
-                    Bayar
-                  </Button>
-                </Link>
+                <Button className="w-full" disabled={!user || !isLogedIn} onClick={() => router.push('/checkout')}>
+                  Bayar
+                </Button>
                 <AlertDialogComponent onConfirm={() => clearCart()} title="Hapus semua item ?" description="Keranjang akan kosong jika anda menghapus semua items!">
                   <Button className="w-full" variant="outline">
                     Hapus Semua
